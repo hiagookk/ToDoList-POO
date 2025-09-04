@@ -11,14 +11,28 @@ public class Tarefa {
     private LocalDateTime dataAgora;
 
     // Construtores
+    public Tarefa() {
+        this.dataAgora = LocalDateTime.now();
+        this.completa = false;
+    }
+
+    public Tarefa(String titulo) {
+        this();
+        this.titulo = titulo;
+    }
+
     public Tarefa(String titulo, String descricao) {
+        this(titulo);
+        this.descricao = descricao;
+    }
+
+    public Tarefa(int id, String titulo, String descricao, boolean completa) {
+        this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
-        this.completa = false;
+        this.completa = completa;
         this.dataAgora = LocalDateTime.now();
     }
-    
-    
     
     // getters e setters
     public int getId(){
