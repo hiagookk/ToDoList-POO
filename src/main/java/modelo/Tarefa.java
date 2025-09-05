@@ -30,7 +30,7 @@ public class Tarefa {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
-        this.completa = completa;   
+        this.completa = completa;
         this.dataAgora = LocalDateTime.now();
     }
     
