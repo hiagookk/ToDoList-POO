@@ -36,7 +36,7 @@ public class TarefaServico {
         System.out.println("=== Suas tarefas ===");
         for (Tarefa t : listaDeTarefas) {
             String status = t.isCompleta() ? "Concluída" : "Pendente";
-            System.out.println(t.getId() + " - " + t.getTitulo() + " | " + t.getDescricao() + " [" + status + "]");
+            System.out.println(t.getId() + " - " + t.getTitulo() + " | " + t.getDescricao() + " [" + status + "] - Criada em: " + t.getDataAgora());
         }
         System.out.println();
     }
