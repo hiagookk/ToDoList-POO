@@ -42,3 +42,27 @@ public class TarefaServico {
         System.out.println();
     }
 }
+
+    // Atualizar tarefa
+    public void atualizarTarefa() {
+        mostrarTarefas();
+        System.out.print("Digite o ID da tarefa que deseja atualizar: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        Tarefa tarefa = buscarPorId(id);
+        if (tarefa == null) {
+            System.out.println("ERRO! Tarefa não encontrada.\n");
+            return;
+        }
+
+        System.out.print("Novo título: ");
+        String novoTitulo = scanner.nextLine();
+        System.out.print("Nova descrição: ");
+        String novaDescricao = scanner.nextLine();
+
+        tarefa.setTitulo(novoTitulo);
+        tarefa.setDescricao(novaDescricao);
+
+        System.out.println("Tarefa atualizada com sucesso!\n");
+    }
