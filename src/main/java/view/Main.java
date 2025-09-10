@@ -10,13 +10,16 @@ public class Main {
 
         int opcao;
         do {
-            System.out.println("=== MENU TO-DO LIST ===");
+            System.out.println("\n=== MENU TO-DO LIST ===");
             System.out.println("1 - Criar tarefa");
             System.out.println("2 - Mostrar tarefas");
-            System.out.println("3 - Sair");
+            System.out.println("3 - Atualizar tarefa");
+            System.out.println("4 - Remover tarefa");
+            System.out.println("5 - Concluir tarefa");
+            System.out.println("6 - Sair");
             System.out.print("Escolha: ");
             opcao = scanner.nextInt();
-            scanner.nextLine(); 
+            scanner.nextLine();
 
             switch (opcao) {
                 case 1:
@@ -26,12 +29,18 @@ public class Main {
                     servico.mostrarTarefas();
                     break;
                 case 3:
-                    System.out.println("Saindo...");
+                    servico.atualizarTarefa();
                     break;
+                case 4:
+                    servico.removerTarefa();
+                case 5:
+                    servico.concluirTarefa();
+                case 6: 
+                    System.out.println("Saindo... ");
                 default:
                     System.out.println("Opção inválida!");
             }
-        } while (opcao != 3);
+        } while (opcao != 6);
 
         scanner.close();
     }
