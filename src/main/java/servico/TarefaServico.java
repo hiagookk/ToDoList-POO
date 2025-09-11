@@ -70,19 +70,32 @@ public class TarefaServico {
     // Remover tarefa
     public void removerTarefa() {
         mostrarTarefas();
-        System.out.print("Digite o ID da tarefa que deseja remover: ");
+        System.out.print("Digite o ID da tarefa que deseja Remover: ");
         int id = scanner.nextInt();
         scanner.nextLine();
 
         Tarefa tarefa = buscarPorId(id);
         if (tarefa == null) {
-            System.out.println("Tarefa não encontrada.\n");
+            System.out.println("ERRO! Tarefa não encontrada.\n");
             return;
         }
-
-        listaDeTarefas.remove(tarefa);
-        System.out.println("Tarefa removida!\n");
-    }
+            //Tela de Confirmação
+            System.out.println("=== TELA DE CONFIRMAÇÃO ===");
+            System.out.println("Tarefa encontrada:");
+            System.out.println("Título: " + tarefa.getTitulo());
+            System.out.println("Descição: " + tarefa.getDescricao());
+            System.out.println("============================");
+            System.out.print("\nTem certeza que deseja remover esta tarefa?(S/N): ");
+            String confirmacao = scanner.nextLine().trim();
+            
+            
+            if(confirmacao.equalsIgnoreCase("S")){
+                listaDeTarefas.remove(tarefa);
+                System.out.println("\n>> Tarefa removida com sucesso!\n");
+            }else{
+                System.out.println("\n Operação cancelada pelo usuário.\n");
+            }
+       }
 
     // Marcar como concluída
     public void concluirTarefa() {
