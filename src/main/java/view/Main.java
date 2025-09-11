@@ -33,10 +33,13 @@ public class Main {
                     break;
                 case 4:
                     servico.removerTarefa();
+                    break;
                 case 5:
                     servico.concluirTarefa();
+                    break;
                 case 6: 
                     System.out.println("Saindo... ");
+                    break;
                 default:
                     System.out.println("Opção inválida!");
             }
