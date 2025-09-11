@@ -66,6 +66,7 @@ public class Tarefa {
     public void setCompleta(boolean completa) {
         this.completa = completa;
     }
+    
 
     public LocalDateTime getDataAgora() {
         return dataAgora;
@@ -73,5 +74,16 @@ public class Tarefa {
 
     public void setDataAgora(LocalDateTime dataAgora) {
         this.dataAgora = dataAgora;
+    }
+// toString para exibir a tarefa de forma legível
+    public String toString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        return "Tarefa {" +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", completa=" + completa +
+                ", data=" + dataAgora.format(formatter) +
+                '}';
     }
 }
