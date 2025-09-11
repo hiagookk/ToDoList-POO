@@ -41,7 +41,7 @@ public class TarefaServico {
         System.out.println("Total de tarefas cadastradas: " + listaDeTarefas.size());
         System.out.println();
     }
-}
+
 
     // Atualizar tarefa
     public void atualizarTarefa() {
@@ -65,4 +65,46 @@ public class TarefaServico {
         tarefa.setDescricao(novaDescricao);
 
         System.out.println("Tarefa atualizada com sucesso!\n");
+    }
+
+    // Remover tarefa
+    public void removerTarefa() {
+        mostrarTarefas();
+        System.out.print("Digite o ID da tarefa que deseja remover: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        Tarefa tarefa = buscarPorId(id);
+        if (tarefa == null) {
+            System.out.println("Tarefa não encontrada.\n");
+            return;
+        }
+
+        listaDeTarefas.remove(tarefa);
+        System.out.println("Tarefa removida!\n");
+    }
+
+    // Marcar como concluída
+    public void concluirTarefa() {
+        mostrarTarefas();
+        System.out.print("Digite o ID da tarefa que deseja marcar como concluída: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        Tarefa tarefa = buscarPorId(id);
+        if (tarefa == null) {
+            System.out.println("Tarefa não encontrada.\n");
+            return;
+        }
+
+        tarefa.setCompleta(true);
+        System.out.println("Tarefa concluída!\n");
+    }
+
+    // Buscar tarefa pelo ID
+    private Tarefa buscarPorId(int id) {
+        for (Tarefa t : listaDeTarefas) {
+            if (t.getId() == id) return t;
+        }
+        return null;
     }
